@@ -20,17 +20,28 @@
     "@types/react-dom": "18.2.7",
     "eslint": "8.45.0",
     "eslint-config-next": "13.4.12",
+    "framer-motion": "^10.11.6",
     "graphql": "^16.7.1",
     "js-cookie": "^3.0.5",
+    "libphonenumber-js": "^1.10.30",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.4",
+    "mui-tel-input": "^3.2.2",
     "next": "13.4.12",
     "next-auth": "^4.22.0",
     "next-themes": "^0.2.1",
     "node": "^20.5.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-fast-marquee": "^1.6.0",
+    "react-hook-form": "^7.45.2",
+    "react-slick": "^0.29.0",
+    "slick-carousel": "^1.8.1",
+    "swiper": "^8.4.7",
     "typescript": "5.1.6"
   },
   "devDependencies": {
-    "@types/js-cookie": "^3.0.3"
+    "@types/js-cookie": "^3.0.3",
+    "@types/lodash": "^4.14.196"
   }
 }

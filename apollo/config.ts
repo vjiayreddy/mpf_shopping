@@ -8,7 +8,6 @@ import { onError } from "@apollo/client/link/error";
 import { setContext } from "@apollo/client/link/context";
 import Cookies from "js-cookie";
 import { themeModeVar } from "./localState";
-//import { setGlobalGqlErrorState, themeModeVar } from "./reactiveState";
 
 const errorLink = onError(({ graphQLErrors, networkError }) => {
   if (graphQLErrors) {
@@ -20,7 +19,6 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
   }
   if (networkError) {
     console.log(`[Network error]: ${networkError}`);
-    //setGlobalGqlErrorState(networkError);
   }
 });
 

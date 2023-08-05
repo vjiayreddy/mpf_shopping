@@ -2,48 +2,27 @@
 
 import * as React from "react";
 import CssBaseline from "@mui/material/CssBaseline";
-import { createTheme, ThemeOptions, ThemeProvider } from "@mui/material/styles";
-import { Roboto } from "next/font/google";
+import { ThemeProvider } from "@mui/material/styles";
 import { NextAppDirEmotionCacheProvider } from "./emotionCache";
-
-const roboto = Roboto({
-  weight: ["300", "400", "500", "700"],
-  style: ["normal", "italic"],
-  subsets: ["latin"],
-});
-
-const themeOptions: ThemeOptions = {
-  typography: {
-    fontSize: 12,
-    fontFamily: roboto.style.fontFamily,
-  },
-  palette: {
-    background: {
-      // pink
-      default: "#ffffff",
-    },
-    primary: {
-      main: "#1976d2",
-    },
-    text: {
-      primary: "#300000",
-    },
-  },
-};
-
-const theme = createTheme(themeOptions);
+import { lightTheme, darkTheme, globalStyles } from "./themeConfig";
+import { useTheme } from "next-themes";
+import { GlobalStyles } from "@mui/material";
 
 export default function ThemeRegistry({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const { theme } = useTheme();
   return (
     <NextAppDirEmotionCacheProvider options={{ key: "mui" }}>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        {children}
-      </ThemeProvider>
+      {theme && (
+        <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+          <CssBaseline />
+          <GlobalStyles styles={globalStyles} />
+          <>{children}</>
+        </ThemeProvider>
+      )}
     </NextAppDirEmotionCacheProvider>
   );
 }
